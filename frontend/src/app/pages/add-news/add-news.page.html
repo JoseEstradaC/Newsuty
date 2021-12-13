@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon name="arrow-back-outline" size="large" (click)="toHome()"></ion-icon>
+    </ion-buttons>
+    <ion-title>Añadir noticia</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <form #form="ngForm">
+    <ion-item>
+      <ion-label position="floating">URL</ion-label>
+      <ion-input [(ngModel)]="url" name="url"></ion-input>
+    </ion-item>
+
+    <ion-button type="submit" expand="full" color="primary" (click)="crear()">Añadir noticia</ion-button>
+  </form>
+</ion-content>

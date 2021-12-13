@@ -1,0 +1,7 @@
+{
+  "name": "Newsuty",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

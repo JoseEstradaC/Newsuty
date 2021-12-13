@@ -1,0 +1,43 @@
+<p-card header="Login" styleClass="p-card-shadow" *ngIf="!sesion">
+  <input type="text" pInputText [(ngModel)]="email" />
+  <br />
+  <p-password [(ngModel)]="password"></p-password>
+  <br />
+  <p-button label="Login" (onClick)="login()" icon="pi pi-check"></p-button>
+</p-card>
+
+<!-- <p-pickList *ngIf="sesion" [source]="users" [target]="admin">
+  <ng-template let-user pTemplate="item">
+    <div>
+      <div style="font-size: 14px; float: right; margin: 15px 5px 0 0">
+        {{ user.email }}
+      </div>
+    </div>
+  </ng-template>
+</p-pickList> -->
+
+<p-pickList
+  *ngIf="sesion"
+  [source]="users"
+  [target]="admin"
+  sourceHeader="Users"
+  targetHeader="Admins"
+  [sourceStyle]="{ height: '30rem' }"
+  [targetStyle]="{ height: '30rem' }"
+  filterBy="email"
+  sourceFilterPlaceholder="Buscar por email"
+  targetFilterPlaceholder="Buscar por email"
+  [dragdrop]="true"
+  (onMoveToTarget)="moveToAdmin($event.items)"
+  (onMoveToSource)="moveToUser($event.items)"
+  (onMoveAllToSource)="moveToUser($event.items)"
+  (onMoveAllToTarget)="moveToAdmin($event.items)"
+>
+  <ng-template let-user pTemplate="item">
+    <div class="product-item">
+      <div style="font-size: 14px; float: right; margin: 15px 5px 0 0">
+        {{ user.email }}
+      </div>
+    </div>
+  </ng-template>
+</p-pickList>
