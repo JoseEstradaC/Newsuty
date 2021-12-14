@@ -28,7 +28,7 @@ export class UsersService {
     const primero = await this.userModel.exists({});
 
     const newUser = new this.userModel(localAuthDto);
-    console.log(primero);
+    // console.log(primero);
 
     if (!primero) {
       newUser.role = Roles.admin;
@@ -68,7 +68,7 @@ export class UsersService {
     if (claim === Roles.admin) {
       const result = await this.userModel.findOne({ email });
       await result.update({ role: Roles.admin }).exec();
-      console.log(result);
+      // console.log(result);
       return { update: true };
     } else {
       throw new UnauthorizedException();
