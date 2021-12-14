@@ -67,7 +67,8 @@ export class UsersService {
   async updateToAdmin(claim: Roles, email: string) {
     if (claim === Roles.admin) {
       const result = await this.userModel.findOne({ email });
-      await result.update({ role: Roles.user }).exec();
+      await result.update({ role: Roles.admin }).exec();
+      console.log(result);
       return { update: true };
     } else {
       throw new UnauthorizedException();
